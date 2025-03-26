@@ -8,31 +8,31 @@ import { environment } from '../../environments/environment';
   providedIn: 'root'
 })
 export class ProductService {
-  private apiUrl = environment.apiUrl; // Esto se ajusta dependiendo del environment (Producción o Desarrollo)
+  private apiUrl = environment.apiUrl;
 
   constructor(private http: HttpClient) {}
 
   getProducts(): Observable<Product[]> {
-    return this.http.get<Product[]>(`${this.apiUrl}/products`);
+    return this.http.get<Product[]>(`${this.apiUrl}`);
   }
 
   getProductById(id: number): Observable<Product> {
-    return this.http.get<Product>(`${this.apiUrl}/products/${id}`);
+    return this.http.get<Product>(`${this.apiUrl}/${id}`);
   }
 
   addProduct(newProduct: Product): Observable<Product> {
-    return this.http.post<Product>(`${this.apiUrl}/products`, newProduct);
+    return this.http.post<Product>(`${this.apiUrl}`, newProduct);
   }
 
   deleteProduct(id: number): Observable<void> {
-    return this.http.delete<void>(`${this.apiUrl}/products/${id}`);
+    return this.http.delete<void>(`${this.apiUrl}/${id}`);
   }
 
   updateProduct(id: number, updatedProduct: Product): Observable<Product> {
-    return this.http.put<Product>(`${this.apiUrl}/products/${id}`, updatedProduct);
+    return this.http.put<Product>(`${this.apiUrl}/${id}`, updatedProduct);
   }
 
   getCategories(): Observable<Category[]> {
-    return this.http.get<Category[]>(`${this.apiUrl}/products/categories`);
+    return this.http.get<Category[]>(`${this.apiUrl}/categories`);
   }
 }
