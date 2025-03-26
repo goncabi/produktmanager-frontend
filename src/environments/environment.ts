@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  apiUrl: 'https://produktmanager-backend.onrender.com'
+  apiUrl: 'https://produktmanager-backend.onrender.com/api'
 };
