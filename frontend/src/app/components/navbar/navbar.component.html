@@ -1,0 +1,18 @@
+<mat-toolbar color="primary" class="navbar">
+  <button mat-mini-fab class="back-button" matTooltip="Zurück" (click)="goBack()">
+    <mat-icon>arrow_back</mat-icon>
+  </button>
+
+  <mat-toolbar color="primary" class="navbar">
+    <a class="nav-button" mat-mini-fab matTooltip="Startseite" routerLink="/landing">
+      <mat-icon>home</mat-icon>
+    </a>
+
+    <a mat-mini-fab class="nav-button" routerLink="/products" matTooltip="Produkte anzeigen">
+      <mat-icon>inventory</mat-icon>
+    </a>
+
+    <a mat-mini-fab class="nav-button" routerLink="/create-product" matTooltip="Produkt hinzufügen">
+      <mat-icon>add</mat-icon>
+    </a>
+  </mat-toolbar>

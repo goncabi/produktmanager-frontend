@@ -1,0 +1,31 @@
+
+.table-container {
+  overflow-x: scroll;
+}
+.action-buttons button {
+  margin: 5px 0;
+  margin-right: 8px
+}
+
+@media (max-width: 768px) {
+  table {
+    width: 90%;
+    display: block;
+  }
+
+  mat-header-cell, mat-cell {
+    display: block;
+    width: 90%;
+    box-sizing: border-box;
+  }
+
+  .mat-header-cell, .mat-cell {
+    padding: 10px;
+  }
+  .action-buttons{
+    display: flex;
+    flex-direction: column;
+  }
+
+
+}

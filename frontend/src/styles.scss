@@ -1,0 +1,102 @@
+@use '@angular/material' as mat;
+
+
+html, body {
+  height: 100%;
+}
+  html {
+    color-scheme: light dark;
+    @include mat.theme((
+      color: (
+        primary: mat.$orange-palette,
+        theme-type: light,
+      ),
+      typography: Roboto,
+      density: 0
+    ));
+  }
+
+
+/* Establecer variables globales del theme */
+:root {
+  --primary-color: var(--mat-sys-primary); /* Color primario del theme */
+  --on-primary: var(--mat-sys-on-primary); /* Texto sobre color primario */
+
+  --background: var(--mat-sys-surface); /* Fondo general */
+  --text-color: var(--mat-sys-on-surface); /* Color del texto principal */
+
+  --header-bg: var(--mat-sys-surface-container); /* Color de fondo del header */
+  --header-text: var(--mat-sys-on-surface); /* Texto del header */
+
+  --card-bg: var(--mat-sys-surface-container-high); /* Fondo de las tarjetas */
+  --card-text: var(--mat-sys-on-surface); /* Texto en tarjetas */
+
+  --button-bg: var(--mat-sys-primary); /* Fondo de botones */
+  --button-text: var(--mat-sys-on-primary); /* Texto de botones */
+
+  --outline-color: var(--mat-sys-outline); /* Color de bordes y separadores */
+}
+
+/* Aplicar colores en todo el body */
+body {
+  background-color: var(--background);
+  color: var(--text-color);
+  font-family: var(--mat-sys-body-medium-font);
+  font-size: var(--mat-sys-body-medium-size);
+  font-weight: var(--mat-sys-body-medium-weight);
+  margin: 0;
+}
+
+/* Header */
+mat-toolbar {
+  background-color: var(--header-bg);
+  color: var(--header-text);
+  font-size: var(--mat-sys-title-medium-size);
+  font-weight: var(--mat-sys-title-medium-weight);
+}
+
+/* Botones */
+mat-button, mat-raised-button {
+  background-color: var(--button-bg);
+  color: var(--button-text);
+}
+
+/* Tarjetas */
+mat-card {
+  background-color: var(--card-bg);
+  color: var(--card-text);
+  box-shadow: var(--mat-sys-level2);
+  border-radius: var(--mat-sys-corner-medium);
+}
+
+/* Formularios */
+mat-form-field {
+  width: 100%;
+}
+
+/* Tablas */
+mat-table {
+  background-color: var(--card-bg);
+  border-radius: var(--mat-sys-corner-medium);
+}
+
+mat-header-cell, mat-cell {
+  padding: 12px;
+  color: var(--text-color);
+}
+
+/* Links */
+a {
+  text-decoration: none;
+  color: var(--primary-color);
+}
+
+a:hover {
+  color: var(--on-primary);
+}
+
+@media (max-width: 768px) {
+  .details-grid {
+    grid-template-columns: 1fr; /* Poner todo en una sola columna en móviles */
+  }
+}

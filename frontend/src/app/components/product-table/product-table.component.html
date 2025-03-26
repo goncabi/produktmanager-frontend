@@ -1,0 +1,84 @@
+<div class="mat-elevation-z2" table-container>
+  <mat-toolbar>
+    <span>📦 Produktliste</span>
+  </mat-toolbar>
+
+  <!-- Search Field -->
+  <mat-form-field appearance="outline" style="margin: 10px; width: 450px;">
+    <mat-label>Produkt suchen</mat-label>
+    <input matInput (keyup)="applyFilter($event)" placeholder="Suche nach Produktname, Kategorie, Hersteller, etc.">
+  </mat-form-field>
+
+  <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+  <!-- Image Column -->
+  <ng-container matColumnDef="image">
+    <mat-header-cell *matHeaderCellDef> Bild </mat-header-cell>
+    <mat-cell *matCellDef="let product">
+      <img *ngIf="product.image_url" [src]="product.image_url" alt="{{product.name}}" width="100" height="100">
+    </mat-cell>
+  </ng-container>
+
+  <!-- EAN Column -->
+  <ng-container matColumnDef="ean">
+    <mat-header-cell *matHeaderCellDef> EAN/GTIN </mat-header-cell>
+    <mat-cell *matCellDef="let product"> {{ product.ean_gtin }} </mat-cell>
+  </ng-container>
+
+  <!-- Category Column -->
+  <ng-container matColumnDef="category">
+    <mat-header-cell *matHeaderCellDef> Kategorie </mat-header-cell>
+    <mat-cell *matCellDef="let product"> {{ product.category_name }} </mat-cell>
+  </ng-container>
+
+  <!-- Product Name Column -->
+  <ng-container matColumnDef="name">
+    <mat-header-cell *matHeaderCellDef> Produktname </mat-header-cell>
+    <mat-cell *matCellDef="let product"> {{ product.name }} </mat-cell>
+  </ng-container>
+
+  <!-- Weight/Volume Column -->
+  <ng-container matColumnDef="weightVolume">
+    <mat-header-cell *matHeaderCellDef> Gewicht/Volumen </mat-header-cell>
+    <mat-cell *matCellDef="let product">
+      {{ product.net_volume_l ? product.net_volume_l + ' L' : product.net_weight_g + ' g' }}
+    </mat-cell>
+  </ng-container>
+
+  <!-- Manufacturer Column -->
+  <ng-container matColumnDef="manufacturer">
+    <mat-header-cell *matHeaderCellDef> Hersteller </mat-header-cell>
+    <mat-cell *matCellDef="let product"> {{ product.manufacturer.name }} </mat-cell>
+  </ng-container>
+
+  <!-- Actions Column -->
+  <ng-container matColumnDef="actions">
+    <mat-header-cell *matHeaderCellDef> Aktionen </mat-header-cell>
+    <mat-cell *matCellDef="let product">
+      <div class="action-buttons">
+        <!-- Pordukt anzeigen -->
+      <button mat-mini-fab (click)="viewDetails(product); $event.stopPropagation()" matTooltip="Details ansehen">
+        <mat-icon>visibility</mat-icon>
+      </button>
+
+        <!-- Produkt ändern -->
+        <button mat-mini-fab color="warn" (click)="editProduct(product); $event.stopPropagation()" matTooltip="Bearbeiten">
+          <mat-icon>edit</mat-icon>
+        </button>
+
+        <!-- Produkt löschen -->
+      <button mat-mini-fab color="warn" (click)="deleteProduct(product); $event.stopPropagation()" matTooltip="Löschen">
+        <mat-icon>delete</mat-icon>
+      </button>
+
+      </div>
+    </mat-cell>
+  </ng-container>
+
+  <!-- Header -->
+  <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+
+  <!-- Zeile mit Click-->
+  <mat-row *matRowDef="let row; columns: displayedColumns;" (click)="viewDetails(row)"></mat-row>
+  </table>
+
+</div>

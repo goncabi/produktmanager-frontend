@@ -1,0 +1,112 @@
+.landing-page {
+  text-align: center;
+  font-family: 'Roboto', sans-serif;
+
+  /* Spezifische Farben für Überschriften */
+  h1, h2, h3 {
+    color: #EF6C00 !important; /* Orange für Überschriften */
+  }
+
+  /* Paragraphen */
+  p {
+    color: #807f7f !important; /* Helleres Grau für bessere Lesbarkeit */
+  }
+
+  /* Buttons */
+  .mat-button, .mat-raised-button {
+    color: white !important;
+  }
+
+
+  /* Links im Footer */
+  footer a {
+    color: #F57C00 !important;
+    text-decoration: none;
+  }
+  footer a:hover {
+    text-decoration: underline;
+  }
+
+  .spacer {
+    flex: 1;
+  }
+
+  .hero {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+    padding: 4rem 2rem;
+    gap: 2rem;
+    .hero-content {
+      max-width: 500px;
+      text-align: left;
+    }
+
+    .hero-image {
+      width: 360px;
+      height: auto;
+      display: flex;
+      flex-direction: column;
+      margin-left: 10px;
+      padding: 20px;
+      box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    }
+  }
+
+  .features {
+    padding: 3rem;
+    background: #fff;
+
+    .features-grid {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      flex-wrap: wrap;
+      mat-card {
+        padding: 1rem;
+        text-align: center;
+        width: 250px;
+      }
+    }
+  }
+
+  .card {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    cursor: default;  /* Ya no se muestra como clickeable */
+    transition: transform 0.3s, box-shadow 0.3s;
+    border-radius: 10px;
+    background-color: white;
+  }
+
+  .card:hover {
+    transform: scale(1.03);  /* Todavía se puede resaltar al pasar el ratón */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+
+
+  .aboutsection {
+    background: #f9f9f9;
+    padding: 3rem;
+
+    .about {
+      max-width: 500px;
+      margin: auto;
+      padding: 2rem;
+    }
+  }
+
+  footer {
+    padding: 1rem;
+
+    a {
+      color: #ffcc00;
+      text-decoration: none;
+    }
+  }
+}

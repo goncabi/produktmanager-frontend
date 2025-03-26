@@ -1,0 +1,54 @@
+.product-details-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+  margin-left: 20px;
+}
+.image-section {
+  text-align: center;
+  margin-bottom: 15px;
+
+}
+.product-image {
+  width: 220px;
+  height: auto;
+  border-radius: 8px;
+  margin-top: 20px;
+  box-shadow: var(--mat-sys-level2);
+}
+
+.details-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  grid-template-rows: repeat(3, auto);
+  gap: 15px;
+  margin-left: 20px;
+  font-size: 1rem;
+  font-weight: 400;
+  align-items: center;
+}
+
+.product-card {
+  width: 80%;
+  padding: 20px;
+  background-color: var(--mat-sys-surface-container);
+}
+
+.button-group {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 15px;
+}
+
+.ingredients-panel, .nutrition-panel, .hersteller-panel {
+  margin-top: 15px;
+}
+
+.nutrition-grid {
+  display: grid;
+  grid-template-columns: (auto-fit, minmax(200px, 1fr));
+  gap: 8px;
+  padding: 10px;
+  border-radius: 8px;
+}

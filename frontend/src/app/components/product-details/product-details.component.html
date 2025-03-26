@@ -1,0 +1,85 @@
+<div class="product-details-container">
+  <mat-card class="product-card">
+    <mat-card-title>📦 Produktdetails</mat-card-title>
+
+    <!-- 📌 Info in two columns -->
+    <div class="details-grid">
+
+      <div class="image-container">
+        <img *ngIf="product.image_url; else noImage"
+             [src]="product.image_url"
+             alt="Produktbild"
+             class="product-image">
+        <ng-template #noImage>
+          <img src="https://imgs.search.brave.com/g0Lq0pNNjVYn7IyzAj5gJNMz7KzMVJmJ9NLI-FThLlU/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly91cGxv/YWQud2lraW1lZGlh/Lm9yZy93aWtpcGVk/aWEvY29tbW9ucy82/LzY1L05vLUltYWdl/LVBsYWNlaG9sZGVy/LnN2Zw" alt="Kein Bild verfügbar" class="product-image">
+        </ng-template>
+      </div>
+
+      <div class="info-section">
+        <p><strong>EAN:</strong> {{ product.ean_gtin || 'Keine' }}</p>
+        <p><strong>Kategorie:</strong> {{ product.category_name || 'Keine' }}</p>
+        <p><strong>Produktname:</strong> {{ product.name || 'Keine' }}</p>
+        <p><strong>Alkoholgehalt:</strong> {{ product.alcohol_volume + '%' || 'Keine' }}</p>
+      </div>
+
+      <div class="info-section">
+        <p><strong>Preis Lieferung:</strong> {{ product.price_delivery || 'Keine' }} €</p>
+        <p><strong>Preis Abholung:</strong> {{ product.price_pickup || 'Keine' }} €</p>
+        <p><strong>Gewicht/Volumen:</strong>
+          {{ product.net_volume_l  + ' L' || product.net_weight_g + ' g' }}
+        </p>
+        <p><strong>Pfand:</strong> {{ product.deposit_amount  + ' €' || 'Keine' }}</p>
+      </div>
+    </div>
+
+    <!-- 🔹 Zutaten -->
+    <mat-expansion-panel class="ingredients-panel">
+      <mat-expansion-panel-header>
+        <mat-panel-title> 🍽️ Zutaten </mat-panel-title>
+      </mat-expansion-panel-header>
+      <p *ngIf="ingredientNames === 'Keine'">Keine Zutaten verfügbar.</p>
+      <ul *ngIf="ingredientNames !== 'Keine'">
+        <li *ngFor="let ingredient of product.ingredients">{{ ingredient.name }}</li>
+      </ul>
+    </mat-expansion-panel>
+
+    <!-- 🔹 Nährwerte -->
+    <mat-expansion-panel class="nutrition-panel">
+      <mat-expansion-panel-header>
+        <mat-panel-title> 🥗 Nährwerte </mat-panel-title>
+      </mat-expansion-panel-header>
+      <div class="nutrition-grid">
+        <div><strong>Energie:</strong> {{ product.nutritionInfo?.energy_kcal ?? 'N/A' }} kcal</div>
+        <div><strong>Eiweiß:</strong> {{ product.nutritionInfo?.protein_g ?? 'N/A' }} g</div>
+        <div><strong>Fett:</strong> {{ product.nutritionInfo?.fat_g ?? 'N/A' }} g</div>
+        <div><strong>Gesättigte Fettsäuren:</strong> {{ product.nutritionInfo?.saturated_fat_g ?? 'N/A' }} g</div>
+        <div><strong>Kohlenhydrate:</strong> {{ product.nutritionInfo?.carbohydrates_g ?? 'N/A' }} g</div>
+        <div><strong>Zucker:</strong> {{ product.nutritionInfo?.sugar_g ?? 'N/A' }} g</div>
+        <div><strong>Ballaststoffe:</strong> {{ product.nutritionInfo?.fiber_g ?? 'N/A' }} g</div>
+        <div><strong>Natrium:</strong> {{ product.nutritionInfo?.sodium_mg ?? 'N/A' }} mg</div>
+      </div>
+    </mat-expansion-panel>
+
+    <!-- 🏭 Hersteller Panel -->
+    <mat-expansion-panel class="hersteller-panel">
+      <mat-expansion-panel-header>
+        <mat-panel-title>🏭 Hersteller</mat-panel-title>
+      </mat-expansion-panel-header>
+      <div class="hersteller-grid">
+        <p><strong>Name:</strong> {{ product.manufacturer.name || 'Keine' }}</p>
+        <p><strong>Adresse:</strong> {{ product.manufacturer.address || 'Keine' }}</p>
+        <p><strong>Land:</strong> {{ product.manufacturer.country || 'Keine' }}</p>
+      </div>
+    </mat-expansion-panel>
+
+    <!-- 🔹 Buttons -->
+    <div class="button-group">
+      <button mat-raised-button color="primary" (click)="editProduct(product); $event.stopPropagation()">
+        📝 Bearbeiten
+      </button>
+      <button mat-raised-button color="warn" (click)="deleteProduct(product); $event.stopPropagation()">
+        ❌ Löschen
+      </button>
+    </div>
+  </mat-card>
+</div>

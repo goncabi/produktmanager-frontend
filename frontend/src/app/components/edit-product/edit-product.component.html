@@ -1,0 +1,179 @@
+<div class="edit-product-container">
+  <mat-card class="edit-product-card">
+    <mat-card-title>📝 Produkt bearbeiten</mat-card-title>
+
+    <form [formGroup]="editProductForm" (ngSubmit)="submitForm()" class="edit-form">
+
+      <!-- 📸 Bild -->
+      <div class="image-section">
+        <img *ngIf="editProductForm.get('image_url')?.value"
+             [src]="editProductForm.get('image_url')?.value"
+             alt="Produktbild" class="product-image">
+        <p *ngIf="!editProductForm.get('image_url')?.value">Kein Bild verfügbar</p>
+        <mat-form-field appearance="outline">
+          <mat-label>Bild-URL</mat-label>
+          <input matInput formControlName="image_url">
+        </mat-form-field>
+      </div>
+
+      <div class="product-details-section">
+        <h3>📦 Produktdetails</h3>
+
+        <div class="product-fields">
+          <!-- First column -->
+          <div class="column">
+            <mat-form-field appearance="outline">
+              <mat-label>EAN</mat-label>
+              <input matInput formControlName="ean_gtin">
+            </mat-form-field>
+
+              <mat-form-field appearance="outline">
+                <mat-label>Kategorie</mat-label>
+                <mat-select formControlName="category_id">
+                  <mat-option *ngFor="let category of categories" [value]="category.category_id">
+                    {{ category.name }}
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>
+
+            <mat-form-field appearance="outline">
+              <mat-label>Produktname</mat-label>
+              <input matInput formControlName="name">
+            </mat-form-field>
+
+
+          <mat-form-field appearance="outline">
+            <mat-label>Brutto-Gewicht (g)</mat-label>
+            <input matInput formControlName="net_weight_g">
+          </mat-form-field>
+
+
+        <mat-form-field appearance="outline">
+          <mat-label>Brutto-Volumen (l)</mat-label>
+          <input matInput formControlName="net_volume_l">
+        </mat-form-field>
+
+
+      <mat-form-field appearance="outline">
+        <mat-label>Netto-Gewicht (g)</mat-label>
+        <input matInput formControlName="gross_weight_g">
+      </mat-form-field>
+
+    </div>
+
+        <!-- Second column -->
+          <div class="column">
+            <mat-form-field appearance="outline">
+              <mat-label>Preis Lieferung (€)</mat-label>
+              <input matInput type="number" formControlName="price_delivery">
+            </mat-form-field>
+
+            <mat-form-field appearance="outline">
+              <mat-label>Preis Abholung (€)</mat-label>
+              <input matInput type="number" formControlName="price_pickup">
+            </mat-form-field>
+
+            <mat-form-field appearance="outline">
+              <mat-label>Alkoholgehalt (%)</mat-label>
+              <input matInput type="number" formControlName="alcohol_volume">
+            </mat-form-field>
+
+            <mat-form-field appearance="outline">
+              <mat-label>Koffein (mg)</mat-label>
+              <input matInput type="number" formControlName="caffeine_mg">
+            </mat-form-field>
+
+            <mat-form-field appearance="outline">
+              <mat-label>Pfand (€)</mat-label>
+              <input matInput type="number" formControlName="deposit_amount">
+            </mat-form-field>
+
+          </div>
+        </div>
+      </div>
+
+      <!-- 🍽️ Zutaten -->
+      <h3>🍽️ Zutaten</h3>
+      <mat-form-field appearance="outline">
+        <mat-label>Zutaten (kommagetrennt)</mat-label>
+        <input matInput formControlName="ingredients">
+      </mat-form-field>
+
+      <h3>🥗 Nährwerte</h3>
+      <div formGroupName="nutritionInfo" class="nutrition-form">
+        <div class="nutrition-grid">
+          <mat-form-field appearance="outline">
+            <mat-label>Energie (kcal)</mat-label>
+            <input matInput type="number" formControlName="energy_kcal">
+          </mat-form-field>
+
+          <mat-form-field appearance="outline">
+            <mat-label>Eiweiß (g)</mat-label>
+            <input matInput type="number" formControlName="protein_g">
+          </mat-form-field>
+
+          <mat-form-field appearance="outline">
+            <mat-label>Fett (g)</mat-label>
+            <input matInput type="number" formControlName="fat_g">
+          </mat-form-field>
+
+          <mat-form-field appearance="outline">
+            <mat-label>Gesättigte Fettsäuren (g)</mat-label>
+            <input matInput type="number" formControlName="saturated_fat_g">
+          </mat-form-field>
+
+          <mat-form-field appearance="outline">
+            <mat-label>Kohlenhydrate (g)</mat-label>
+            <input matInput type="number" formControlName="carbohydrates_g">
+          </mat-form-field>
+
+          <mat-form-field appearance="outline">
+            <mat-label>Zucker (g)</mat-label>
+            <input matInput type="number" formControlName="sugar_g">
+          </mat-form-field>
+
+          <mat-form-field appearance="outline">
+            <mat-label>Ballaststoffe (g)</mat-label>
+            <input matInput type="number" formControlName="fiber_g">
+          </mat-form-field>
+
+          <mat-form-field appearance="outline">
+            <mat-label>Natrium (mg)</mat-label>
+            <input matInput type="number" formControlName="sodium_mg">
+          </mat-form-field>
+        </div>
+      </div>
+
+      <!-- 🏭 Hersteller -->
+      <h3>🏭 Hersteller</h3>
+      <div formGroupName="manufacturer">
+        <mat-form-field appearance="outline">
+          <mat-label>Name</mat-label>
+          <input matInput formControlName="name">
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+          <mat-label>Adresse</mat-label>
+          <input matInput formControlName="address">
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+          <mat-label>Land</mat-label>
+          <input matInput formControlName="country">
+        </mat-form-field>
+      </div>
+
+
+      <!-- 🔹 Buttoms -->
+      <div class="button-group">
+        <button mat-raised-button color="warn" type="button" (click)="cancelEdit()">
+          ❌ Abbrechen
+        </button>
+        <button mat-raised-button color="primary" type="submit" [disabled]="isSubmitting">
+          ✅ Speichern
+        </button>
+      </div>
+
+    </form>
+  </mat-card>
+</div>
