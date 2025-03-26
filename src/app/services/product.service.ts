@@ -2,12 +2,13 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import {Category, Product} from '../interfaces/models';
+import {environment} from '../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ProductService {
-  private apiUrl = 'https://produktmanager-backend.onrender.com';
+  private apiUrl = environment.apiUrl + '/api/products';  // Cambié esto
 
   constructor(private http: HttpClient) {}
 
