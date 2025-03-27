@@ -6,7 +6,7 @@
   <!-- Search Field -->
   <mat-form-field appearance="outline" style="margin: 10px; width: 450px;">
     <mat-label>Produkt suchen</mat-label>
-    <input matInput (keyup)="applyFilter($event)" placeholder="Suche nach Produktname, Kategorie, Hersteller, etc.">
+    <input matInput (keyup)="applyFilter($event)" placeholder="Suche nach EAN, Produktname, Kategorie oder Hersteller">
   </mat-form-field>
 
   <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
