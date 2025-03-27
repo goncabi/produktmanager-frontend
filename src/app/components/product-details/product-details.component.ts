@@ -73,10 +73,10 @@ export class ProductDetailsComponent implements OnInit {
     if (!isNaN(productId)) {
       this.productService.getProductById(productId).subscribe(
         product => {
-          console.log("Producto recibido en Angular:", product); // 🔥 DEBUG
+          console.log("Produkt empfangen:", product); // 🔥 DEBUG
 
           if (!product) {
-            console.error("El producto es null o undefined");
+            console.error("Produkt is null");
             return;
           }
           product.manufacturer = product.manufacturer || { id: 0, name: '', address: '', country: '' };
@@ -90,11 +90,11 @@ export class ProductDetailsComponent implements OnInit {
           }
         },
         error => {
-          console.error("Error al obtener producto:", error);
+          console.error("Fehler beim Produkt empfangen:", error);
         }
       );
     } else {
-      console.error("ID de producto no válido.");
+      console.error("ID ungültig.");
     }
   }
 

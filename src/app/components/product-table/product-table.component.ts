@@ -63,18 +63,18 @@ export class ProductTableComponent implements OnInit {
 
   loadProducts(): void {
     this.productService.getProducts().subscribe(products => {
-      console.log('Productos recibidos:', products);
+      console.log('Empfangene Daten:', products);
       this.dataSource.data = products;
-      console.log('DataSource después de cargar productos:', this.dataSource.data);
+      console.log('DataSource nach Ladens der Daten:', this.dataSource.data);
     });
   }
 
   viewDetails(product: Product): void {
     if (product && product.product_id !== undefined && product.product_id !== null) {
-      console.log("Navegando a detalles del producto con ID:", product.product_id); // Debug
+      console.log("Navigate nach Produkt-Details", product.product_id); // Debug
       this.router.navigate(['/product', product.product_id]);
     } else {
-      console.error("Error: El producto no tiene un ID válido:", product);
+      console.error("Fehler: Produkt-ID ungültig", product);
     }
   }
 
