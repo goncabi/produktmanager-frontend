@@ -23,7 +23,7 @@ Dies ist die Hauptansicht der Produktliste in der Anwendung.
 ## ➕ Produkt hinzufügen
 Formular zum Hinzufügen eines neuen Produkts.
 
-![Produkt hinzufügen](./images/produkt_hinzufügen.png)
+![Produkt hinzufügen](./images/produkt_hinzufuegen.png)
 
 ---
 
