@@ -6,8 +6,6 @@ Dieses Projekt ist eine Webanwendung zur Verwaltung von Produkten, die es ermög
 
 Das Produktmanager-Projekt ermöglicht folgende Funktionen:
 
-### Produkterstellung: Benutzer können neue Produkte mit Kategorien, Herstellerinformationen, Zutaten und Nährwertinformationen hinzufügen.
-
 - **Produkterstellung:** Benutzer können neue Produkte mit Kategorien, Herstellerinformationen, Zutaten und Nährwertinformationen hinzufügen.
 - **Produktanzeige:** Eine Liste aller vorhandenen Produkte wird angezeigt, mit Detailansichten für jedes Produkt.
 - **Produktbearbeitung:** Bereits erstellte Produkte können aktualisiert werden.
