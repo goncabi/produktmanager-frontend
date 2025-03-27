@@ -13,6 +13,30 @@ Das Produktmanager-Projekt ermöglicht folgende Funktionen:
 - **Datenverwaltung:** Automatische Verbindung zu einer PostgreSQL-Datenbank.
 - **Benutzerfreundliche Oberfläche:** Verwenden von Angular Material für ein ansprechendes und intuitives Design.
 
+## 📦 Produktliste
+Dies ist die Hauptansicht der Produktliste in der Anwendung.
+
+![Produktliste](./images/produktliste.png)
+
+---
+
+## ➕ Produkt hinzufügen
+Formular zum Hinzufügen eines neuen Produkts.
+
+![Produkt hinzufügen](./images/produkt_hinzufügen.png)
+
+---
+
+## 🔍 Produkt Details
+Detailansicht eines spezifischen Produkts.
+
+![Produkt Details](./images/produkt_details.png)
+
+## 🔍 Produkt Bearbeiten
+Detailansicht eines spezifischen Produkts.
+
+![Produkt Details](./images/produkt_bearbeiten.png)
+
 ## Installation
 
 ### Voraussetzungen
