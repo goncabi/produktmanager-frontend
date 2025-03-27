@@ -9,14 +9,22 @@
 
 @media (max-width: 768px) {
   table {
-    width: 90%;
+    width: 100%;
     display: block;
+    padding: 10px;
+    hyphens: auto;
+
   }
 
   mat-header-cell, mat-cell {
     display: block;
-    width: 90%;
+    width: 100%;
     box-sizing: border-box;
+    white-space: normal;
+    word-break: auto-phrase;
+    overflow-wrap: inherit;
+    hyphens: auto;
+    padding: 10px;
   }
 
   .mat-header-cell, .mat-cell {
