@@ -4,9 +4,9 @@
   </mat-toolbar>
 
   <!-- Search Field -->
-  <mat-form-field appearance="outline" style="margin: 10px; width: 460px;">
+  <mat-form-field appearance="outline" style="margin: 10px; width: 465px;">
     <mat-label>Produkt suchen</mat-label>
-    <input matInput (keyup)="applyFilter($event)" placeholder="Suche nach EAN, Name, Kategorie oder Hersteller">
+    <input matInput (keyup)="applyFilter($event)" placeholder="Suche nach EAN, Produktname, Kategorie oder Hersteller">
   </mat-form-field>
 
   <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
