@@ -106,7 +106,7 @@ export class ProductTableComponent implements OnInit {
               verticalPosition: 'top',
               horizontalPosition: 'center'
             });
-            this.router.navigate(['/products']);
+            window.location.reload();
           },
           error: (err) => {
             console.error("❌ Fehler beim Löschen des Produkts:", err);

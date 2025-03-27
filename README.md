@@ -1,59 +1,124 @@
-# Frontend
+# Produktmanager Frontend & Backend
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.0.1.
+Dieses Projekt ist eine Webanwendung zur Verwaltung von Produkten, die es ermöglicht, Produkte hinzuzufügen, zu aktualisieren, anzuzeigen und zu löschen. Es besteht aus einem **Angular-Frontend** und einem **Node.js-Backend** mit Verbindung zu einer **PostgreSQL-Datenbank**.
 
-## Development server
+# Funktionalitäten
 
-To start a local development server, run:
+Das Produktmanager-Projekt ermöglicht folgende Funktionen:
 
-```bash
-ng serve
-```
+### Produkterstellung: Benutzer können neue Produkte mit Kategorien, Herstellerinformationen, Zutaten und Nährwertinformationen hinzufügen.
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+- **Produkterstellung:** Benutzer können neue Produkte mit Kategorien, Herstellerinformationen, Zutaten und Nährwertinformationen hinzufügen.
+- **Produktanzeige:** Eine Liste aller vorhandenen Produkte wird angezeigt, mit Detailansichten für jedes Produkt.
+- **Produktbearbeitung:** Bereits erstellte Produkte können aktualisiert werden.
+- **Produktlöschung:** Benutzer können Produkte löschen.
+- **Datenverwaltung:** Automatische Verbindung zu einer PostgreSQL-Datenbank.
+- **Benutzerfreundliche Oberfläche:** Verwenden von Angular Material für ein ansprechendes und intuitives Design.
 
-## Code scaffolding
+## Installation
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+### Voraussetzungen
 
-```bash
-ng generate component component-name
-```
+- Node.js (mindestens Version 16)
+- npm (mit Node.js installiert)
+- PostgreSQL Datenbank
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+### Backend Setup
 
-```bash
-ng generate --help
-```
-
-## Building
-
-To build the project run:
+1. Klone das Repository:
 
 ```bash
-ng build
+  git clone https://github.com/goncabi/produktmanager-backend.git
 ```
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
+2. Navigiere in das Backend-Verzeichnis:
 
 ```bash
-ng test
+  cd produktmanager-backend
 ```
 
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
+3. Installiere die Abhängigkeiten:
 
 ```bash
-ng e2e
+  npm install
 ```
 
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
+4. Erstelle eine `.env` Datei im Backend-Verzeichnis mit folgendem Inhalt:
 
-## Additional Resources
+```
+  DB_USER=<DeinBenutzername>
+  DB_PASSWORD=<DeinPasswort>
+  DB_HOST=<DatenbankHost>
+  DB_NAME=produktmanager
+  DB_PORT=5432
+```
 
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+5. Starte den Server:
+
+```bash
+  node server.js
+```
+
+### Frontend Setup
+
+1. Klone das Repository:
+
+```bash
+  git clone https://github.com/goncabi/produktmanager-frontend.git
+```
+
+2. Navigiere in das Frontend-Verzeichnis:
+
+```bash
+  cd produktmanager-frontend
+```
+
+3. Installiere die Abhängigkeiten:
+
+```bash
+  npm install
+```
+
+4. Starte das Frontend:
+
+```bash
+  ng serve
+```
+
+### Deployment
+
+#### Backend Deployment (Render)
+
+1. Stelle sicher, dass deine Umgebungsvariablen auf Render gesetzt sind (DB\_USER, DB\_PASSWORD, DB\_HOST, DB\_NAME, DB\_PORT).
+2. Lade das Repository auf Render hoch und starte die Anwendung.
+
+#### Frontend Deployment (Render)
+
+1. Stelle sicher, dass `angular.json` den richtigen `outputPath` (`dist/frontend/browser`) definiert.
+2. Stelle sicher, dass du `ng build` ausführst, bevor du deployst.
+3. Lade die gebauten Dateien (`dist/frontend/browser`) auf Render hoch.
+
+### Verwendung
+
+Das Frontend kann auf `http://localhost:4200` aufgerufen werden. Das Backend läuft auf `http://localhost:5000`.
+
+### Technologien
+
+- Angular (Frontend)
+- Angular Material
+- Node.js (Backend)
+- Express
+- PostgreSQL
+
+### Quellen
+
+- Wo ChatGPT unterstützt hat:
+  - Unterstützung bei der Erstellung von Angular-Komponenten.
+  - Hilfe beim Aufbau von Backend-Routen.
+  - Beratung bei der Verbindung mit der Datenbank.
+  - Unterstützung bei der Fehlerbehebung während des Deployments.
+  - Verbesserung der Projektstruktur und der Kommunikation zwischen Frontend und Backend.
+  - Optimierung der Datenverarbeitung und Validierung im Backend.
+
+Viel Spaß beim Verwenden des Produktmanagers! 🚀
+
