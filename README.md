@@ -1,3 +1,5 @@
+> **Archived.** This repository has moved to [goncabi/produktmanager](https://github.com/goncabi/produktmanager) (the `frontend/` folder), with its full commit history. Development continues there.
+
 # Produktmanager Frontend & Backend
 
 Dieses Projekt ist eine Webanwendung zur Verwaltung von Produkten, die es ermöglicht, Produkte hinzuzufügen, zu aktualisieren, anzuzeigen und zu löschen. Es besteht aus einem **Angular-Frontend** und einem **Node.js-Backend** mit Verbindung zu einer **PostgreSQL-Datenbank**.
